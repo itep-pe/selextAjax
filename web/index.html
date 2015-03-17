@@ -9,10 +9,35 @@ and open the template in the editor.
         <title>Select Ajax</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script type="text/javascript" src="./js/jquery-select.js"></script>
+        <script type="text/javascript" src="./js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="./js/ajax.js"></script>
     </head>
     <body>
-        <form action="#" method="post">
+        <!--        <script>
+                    $(document).ready(function () {
+            $('select[name=sltpais]').on('change', function () {
+                $.ajax({
+                    type: 'GET',
+                    url: 'PaisController',
+                    data: 'codigopais=' + $('select[name=sltpais]').val(),
+                    statusCode: {
+                        404: function () {
+                            alert('Pagina não encontrada');
+                        },
+                        500: function () {
+                            alert('Erro no servidor');
+                        }
+                    },
+                    sucess: function (dados) {
+                        console.log(dados);
+                    }
+                });
+            });
+        });
+        
+                </script>-->
+
+        <form>
             <fieldset>
                 <legend>Registro de Clientes</legend>                
                 <label for="nome">Nome</label>
@@ -20,6 +45,10 @@ and open the template in the editor.
                 <label for="nome">País</label>
                 <select name="sltpais">
                     <option selected>--Selecione o nome do país--</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Bolivia">Bolívia</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Costa Rica">Costa Rica</option>
                 </select>
                 <label for="nome">Província</label>
                 <select>
@@ -27,6 +56,13 @@ and open the template in the editor.
                 </select><br>                
                 <input type="button" value="Salvar" class="btn btn-info"/>               
             </fieldset>
+
+            
+            <fieldset>
+                <legend>Resposta</legend>
+                <div id="ajaxResponse"></div>      
+            </fieldset>
+
         </form>
     </body>
 </html>
