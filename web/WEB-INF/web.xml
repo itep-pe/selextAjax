@@ -8,6 +8,16 @@
         <servlet-name>PaisController</servlet-name>
         <url-pattern>/paisController</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>SelectController</servlet-name>
+        <servlet-class>ajax.SelectController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SelectController</servlet-name>
+        <url-pattern>/selectController</url-pattern>
+    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30
