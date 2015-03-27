@@ -1,6 +1,6 @@
 <%-- 
-    Document   : selectAjax
-    Created on : 17/03/2015, 09:04:23
+    Document   : selectCarros
+    Created on : 27/03/2015, 11:02:21
     Author     : jefferson.lima
 --%>
 
@@ -13,6 +13,7 @@
         <script type="text/javascript" src="./js/jquery-1.11.2.min.js"></script>
         <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 
+        <script src="./js/select.js" type="text/javascript"></script>
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js" type="text/javascript"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
@@ -69,32 +70,40 @@
         </script>
 
         <div>
-            <form id="myAjaxRequestForm">
+            <div>
+                <form id="myAjaxRequestForm">
+                    <fieldset>
+                        <legend>Atividade</legend>                
+                        <!--                <label for="nome">Departamento</label>-->
+                        <select name="sltatividade">
+                            <option selected>--Selecione o código da atividade--</option>
+                            <option value="A1">A1: UGP - Barragens</option>
+                            <option value="A2">A2: CPRH - EIA</option>
+                            <option value="A3">A3: Compesa - Adutora do Agreste</option>
+                        </select>
+
+                        <input type="button" value="Salvar" class="btn btn-info"/>               
+                    </fieldset>
+                </form>
+            </div>
+
+            <div>
                 <fieldset>
-                    <legend>Atividade</legend>                
-                    <!--                <label for="nome">Departamento</label>-->
-                    <select name="sltatividade">
-                        <option selected>--Selecione o código da atividade--</option>
-                        <option value="A1">A1: UGP - Barragens</option>
-                        <option value="A2">A2: CPRH - EIA</option>
-                        <option value="A3">A3: Compesa - Adutora do Agreste</option>
-                    </select>
+                    <!--                <fieldset>
+                                        <legend>Automóveis relacionados à atividade</legend>-->
+                    <!--                <label for="nome">Carros</label>-->
+                    <div id="ajaxResponse"></div>
+                    <select id="carro" name="carroatividade">
+                        <option selected>--Carros disponíveis--</option>
+                    </select>                    
 
-                    <input type="button" value="Salvar" class="btn btn-info"/>               
+                    <img src="./img/add.jpg" alt="Add" 
+                         onclick="selectCar(document.getElementById('carro'));" />
+
+                    <ul class="clone"></ul>
                 </fieldset>
-            </form>
+            </div>
         </div>
-
-        <div>
-            <fieldset>
-                <legend>Automóveis relacionados à atividade</legend>
-                <!--                <label for="nome">Carros</label>-->
-                <div id="ajaxResponse"></div>
-                <select name="carroatividade">
-                    <option selected>--Carros disponíveis--</option>
-                </select><br>
-            </fieldset>
-        </div>
-
     </body>
 </html>
+

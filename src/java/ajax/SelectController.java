@@ -20,14 +20,20 @@ public class SelectController extends HttpServlet {
 
     public final class Veiculo implements Serializable {
 
+        private String id;
         private String modelo;
         private String placa;
         private String codAtividade;
 
-        public Veiculo(String modelo, String placa, String codAtividade) {
+        public Veiculo(String id, String modelo, String placa, String codAtividade) {
+            this.id = id;
             this.modelo = modelo;
             this.placa = placa;
             this.codAtividade = codAtividade;
+        }
+
+        public String getId() {
+            return this.id;
         }
 
         public String getModelo() {
@@ -40,6 +46,10 @@ public class SelectController extends HttpServlet {
 
         public String getCodAtividade() {
             return this.codAtividade;
+        }
+
+        public void setId(String id) {
+            this.id = id;
         }
 
         public void setModelo(String modelo) {
@@ -99,15 +109,15 @@ public class SelectController extends HttpServlet {
 
     private List<Veiculo> consultaCarrosAtividade(String codigoAtividade) {
         List<Veiculo> listaCarros = new ArrayList<Veiculo>();
-        Veiculo a = new Veiculo("GOL", "GVW 5510", "A1");
-        Veiculo b = new Veiculo("UNO", "EQP 0002", "A2");
-        Veiculo c = new Veiculo("FIESTA", "BRA 2002", "A3");
-        Veiculo d = new Veiculo("HILLUX", "GON 6606", "A1");
-        Veiculo e = new Veiculo("FREEMONT", "GAH 2640", "A2");
-        Veiculo f = new Veiculo("S10", "CSC 2013", "A3");
-        Veiculo g = new Veiculo("TUCSON", "BRA 2014", "A1");
-        Veiculo h = new Veiculo("AMAROK", "NQC 0876", "A2");
-        Veiculo i = new Veiculo("SAVEIRO", "PLM 5748", "A3");
+        Veiculo a = new Veiculo("0", "GOL", "GVW 5510", "A1");
+        Veiculo b = new Veiculo("1", "UNO", "EQP 0002", "A2");
+        Veiculo c = new Veiculo("2", "FIESTA", "BRA 2002", "A3");
+        Veiculo d = new Veiculo("3", "HILLUX", "GON 6606", "A1");
+        Veiculo e = new Veiculo("4", "FREEMONT", "GAH 2640", "A2");
+        Veiculo f = new Veiculo("5", "S10", "CSC 2013", "A3");
+        Veiculo g = new Veiculo("6", "TUCSON", "BRA 2014", "A1");
+        Veiculo h = new Veiculo("7", "AMAROK", "NQC 0876", "A2");
+        Veiculo i = new Veiculo("8", "SAVEIRO", "PLM 5748", "A3");
 
         listaCarros.add(a);
         listaCarros.add(b);
@@ -121,11 +131,9 @@ public class SelectController extends HttpServlet {
 
         List<Veiculo> carrosRelacionados = new ArrayList<Veiculo>();
 
-        int contador = 0;
         for (int k = 0; k < listaCarros.size(); k++) {
             if (listaCarros.get(k).getCodAtividade().equals(codigoAtividade)) {
                 carrosRelacionados.add(listaCarros.get(k));
-                contador += 1;
             }
         }
 
